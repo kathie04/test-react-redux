@@ -1,4 +1,4 @@
-import ActionTypes from "./actionTypesType";
+import ActionTypes from "./types";
 
 export const types: ActionTypes = {
     SET_SUCCESS: 'SET_SUCCESS_LIST3',

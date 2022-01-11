@@ -1,7 +1,7 @@
 import {AnyAction} from "redux";
 import {types} from "../actions/actionList2";
-import ListState from "./ListStateType";
-import fetchStatuses from "../../models/statuses";
+import ListState from "./type";
+import fetchStatuses from "../../interfaces/statuses";
 
 const initialState : ListState = {
     status: fetchStatuses.NOT_STARTED

@@ -1,6 +1,6 @@
 import logo from "../logo.svg";
 import React from "react";
-import fetchStatuses from "../models/statuses";
+import fetchStatuses from "../interfaces/statuses";
 import {useSelector} from "react-redux";
 import {State} from "../store/reducers/rootReducer";
 

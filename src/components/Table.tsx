@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import {selectUnionList} from "../selectors/selectors";
+import {selectUnionList} from "../store/selectors/selectors";
 
 const Table: React.FC = () => {
 
