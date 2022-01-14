@@ -1,17 +1,13 @@
 import logo from "../logo.svg";
 import React from "react";
-import fetchStatuses from "../interfaces/statuses";
 import {useSelector} from "react-redux";
-import {State} from "../store/reducers/rootReducer";
+import {selectErrors, selectIsError} from "../store/selectors/selectors";
 
-interface LoaderProps {
-    isError: boolean
-}
 
-const Loader: React.FC<LoaderProps> = ({isError}) => {
+const Loader: React.FC = () => {
 
-    const state = useSelector((state: State) => state);
-    let list = [state.list1, state.list2, state.list3]
+    let isError: boolean = useSelector(selectIsError);
+    let errors = useSelector(selectErrors)
 
     return (
         <div>
@@ -20,9 +16,9 @@ const Loader: React.FC<LoaderProps> = ({isError}) => {
                 ? <div>
                     <p>Something went wrong, we've got an errors:</p>
                     <ul>
-                        {list.map((item, index) => {
-                            if (item.status === fetchStatuses.ERROR) {
-                                return <p>Request for list{index + 1} has got an error: {item.error.message}</p>
+                        {errors.map((item, index) => {
+                            if (item) {
+                                return <p>Request for list{index + 1} has got an error: {item.message}</p>
                             }
                             return <p>Request for list{index + 1} was successful</p>
                         })

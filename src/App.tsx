@@ -26,7 +26,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                {isLoading || isError ? <Loader isError={isError}/> : <Table />}
+                {isLoading || isError ? <Loader/> : <Table />}
             </header>
         </div>
     );

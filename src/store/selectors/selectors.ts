@@ -15,6 +15,15 @@ const statuses = (state: State) => {
     return [state?.list1?.status, state?.list2?.status, state?.list3?.status]
 }
 
+const errors = (state: State) => {
+    return [
+        state?.list1?.error ? state?.list1?.error : null,
+        state?.list2?.error ? state?.list2?.error : null,
+        state?.list3?.error ? state?.list3?.error : null]
+}
+
+
+
 export const selectUnionList = createSelector(
     allData,
     unionList => unionList.sort((a: ListItem, b: ListItem) => {
@@ -33,4 +42,9 @@ export const selectIsLoading = createSelector(
 export const selectIsError = createSelector(
     statuses,
     list => list.some(item => item === fetchStatuses.ERROR)
+)
+
+export const selectErrors = createSelector(
+    errors,
+    list => list
 )
